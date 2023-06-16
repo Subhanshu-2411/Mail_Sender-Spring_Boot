@@ -24,7 +24,7 @@ public class EmailSenderService {
 
         simpleMailMessage.setFrom(fromEmail);
         Date date = new Date();
-        date.setMinutes(date.getMinutes() + 10);
+        date.setMinutes(date.getMinutes() + 1);
         simpleMailMessage.setSentDate(date);
         javaMailSender.send(simpleMailMessage);
 
