@@ -4,6 +4,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class EmailSenderService {
 
@@ -21,7 +23,9 @@ public class EmailSenderService {
         simpleMailMessage.setSubject(subject);
 
         simpleMailMessage.setFrom(fromEmail);
-
+        Date date = new Date();
+        date.setMinutes(date.getMinutes() + 10);
+        simpleMailMessage.setSentDate(date);
         javaMailSender.send(simpleMailMessage);
 
     }
